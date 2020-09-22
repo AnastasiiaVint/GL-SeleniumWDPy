@@ -75,12 +75,13 @@ class Test_homework():
         first_product.click()
 
         item_page_product_name = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH,"//*[@id='box-product']//h1"))).text
-        item_page_product_price = driver.find_element(By.XPATH, ".//*[@class = 'regular-price']")
+
+        item_page_product_price = driver.find_element(By.XPATH, "//*[@class = 'regular-price']")
         item_page_price_value = item_page_product_price.text
         item_page_price_color = item_page_product_price.value_of_css_property('color')
         item_page_price_style = item_page_product_price.value_of_css_property('text-decoration-line')
 
-        item_page_discount = driver.find_element(By.XPATH, ".//*[@class = 'campaign-price']")
+        item_page_discount = driver.find_element(By.XPATH, "//*[@class = 'campaign-price']")
         item_page_discount_value = item_page_discount.text
         item_page_discount_color = item_page_discount.value_of_css_property('color')
         item_page_discount_style = item_page_discount.value_of_css_property('font-weight')
