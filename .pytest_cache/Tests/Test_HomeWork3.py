@@ -50,6 +50,7 @@ class Test_homework():
 
         driver.quit()
 
+
     def test_second(self):
         baseUrl = "http://35.236.6.102/litecart/"
         driver = webdriver.Chrome()
