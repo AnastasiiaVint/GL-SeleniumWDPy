@@ -29,12 +29,19 @@ class Test_homework5():
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//*[@id = 'cart']//a"))).click()
 
         # Remove all products from the cart one-by-one.
-        number_of_remove_buttons = len(WebDriverWait(driver, 10).until(EC.presence_of_all_elements_located((By.XPATH, "//button[@title = 'Remove']"))))
+        # number_of_remove_buttons = len(WebDriverWait(driver, 10).until(EC.presence_of_all_elements_located((By.XPATH, "//button[@title = 'Remove']"))))
 
-        while number_of_remove_buttons > 0:
+        # while number_of_remove_buttons > 0:
+        #     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//button[@title = 'Remove']"))).click()
+        #     time.sleep(1)
+        #     number_of_remove_buttons -= 1
+
+
+        while   WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//button[@title = 'Remove']"))).is_displayed():
             WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//button[@title = 'Remove']"))).click()
             time.sleep(1)
-            number_of_remove_buttons -= 1
 
         empty_cart_indication = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[@id='content']/p[contains(text(), 'There are no items in your cart.')]")))
         assert empty_cart_indication.is_displayed()
+
+        driver.quit()
